@@ -164,6 +164,7 @@
 		
 		loc.directory = Replace(ListAppend(loc.folder, loc.filePath, "/"), "\", "/", "all");
 		loc.fullPath = ListAppend(loc.directory, loc.file, "/");
+		if (!FileExists(loc.fullPath)) loc.fullPath = ExpandPath(loc.fullPath);
 
 		// if the file is not found, try searching for it
 		if (!FileExists(loc.fullPath))
