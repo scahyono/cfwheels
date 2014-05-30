@@ -162,9 +162,9 @@
 		loc.file = ListLast(loc.filePath, "/");
 		loc.filePath = Reverse(ListRest(Reverse(loc.filePath), "/"));
 		
+		if (!DirectoryExists(loc.folder)) loc.folder = Expandpath(loc.folder);
 		loc.directory = Replace(ListAppend(loc.folder, loc.filePath, "/"), "\", "/", "all");
 		loc.fullPath = ListAppend(loc.directory, loc.file, "/");
-		if (!FileExists(loc.fullPath)) loc.fullPath = ExpandPath(loc.fullPath);
 
 		// if the file is not found, try searching for it
 		if (!FileExists(loc.fullPath))
